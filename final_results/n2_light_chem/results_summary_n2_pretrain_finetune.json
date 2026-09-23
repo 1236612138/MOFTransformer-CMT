@@ -1,0 +1,262 @@
+{
+  "project": "MOFTransformer_CMT",
+  "task": "N2 adsorption prediction",
+  "summary": {
+    "best_single_run": {
+      "name": "best1",
+      "type": "single_run_best",
+      "status": "best_but_not_reproducible",
+      "comment": "单次最优结果，性能最高，但后续 seed 复现明显下降。"
+    },
+    "most_reliable_run": {
+      "name": "light_chem",
+      "type": "stable_candidate",
+      "status": "recommended_mainline",
+      "comment": "多 seed 表现稳定，虽然未超过 best1，但当前最可信。"
+    }
+  },
+  "downstream_results": [
+    {
+      "name": "best1_seed0",
+      "group": "best1",
+      "seed": 0,
+      "pretrain": "historical_best_pretrain",
+      "test_loss_epoch": 0.0009826116729527712,
+      "test_mae_epoch": 0.020818566903471947,
+      "val_loss": 0.001285927719436586,
+      "val_mae": 0.022936642169952393,
+      "test_r2_score": 0.8044009208679199,
+      "test_the_metric": -0.020818566903471947,
+      "status": "best_single_run",
+      "comment": "当前历史单次最好结果。"
+    },
+    {
+      "name": "best1_seed1_old_repro",
+      "group": "best1",
+      "seed": 1,
+      "pretrain": "historical_best_pretrain",
+      "test_loss_epoch": 0.001730018062517047,
+      "test_mae_epoch": 0.032234109938144684,
+      "val_loss": 0.002147060353308916,
+      "val_mae": 0.0360562726855278,
+      "test_r2_score": 0.6556218266487122,
+      "test_the_metric": -0.032234109938144684,
+      "status": "repro_failed",
+      "comment": "best1 复现性差。"
+    },
+    {
+      "name": "best1_seed2_old_repro",
+      "group": "best1",
+      "seed": 2,
+      "pretrain": "historical_best_pretrain",
+      "test_loss_epoch": 0.001489983405917883,
+      "test_mae_epoch": 0.028146086260676384,
+      "val_loss": 0.0018302866956219077,
+      "val_mae": 0.032275110483169556,
+      "test_r2_score": 0.7034032940864563,
+      "test_the_metric": -0.028146086260676384,
+      "status": "repro_failed",
+      "comment": "仍明显低于 best1_seed0。"
+    },
+    {
+      "name": "light_chem_seed0",
+      "group": "light_chem",
+      "seed": 0,
+      "pretrain": "stage2_light_chem",
+      "test_loss_epoch": 0.0013734358362853527,
+      "test_mae_epoch": 0.024933991953730583,
+      "val_loss": 0.001670998171903193,
+      "val_mae": 0.027446169406175613,
+      "test_r2_score": 0.7266032695770264,
+      "test_the_metric": -0.024933991953730583,
+      "status": "stable_good",
+      "comment": "当前最稳定新主线之一。"
+    },
+    {
+      "name": "light_chem_seed1",
+      "group": "light_chem",
+      "seed": 1,
+      "pretrain": "stage2_light_chem",
+      "test_loss_epoch": 0.001345210475847125,
+      "test_mae_epoch": 0.025595834478735924,
+      "val_loss": 0.0017017198260873556,
+      "val_mae": 0.02812645584344864,
+      "test_r2_score": 0.7322218418121338,
+      "test_the_metric": -0.025595834478735924,
+      "status": "stable_good",
+      "comment": "与 seed0 接近，稳定性较好。"
+    },
+    {
+      "name": "light_chem_seed2",
+      "group": "light_chem",
+      "seed": 2,
+      "pretrain": "stage2_light_chem",
+      "test_loss_epoch": 0.001255445065908134,
+      "test_mae_epoch": 0.02490409091114998,
+      "val_loss": 0.00152601080480963,
+      "val_mae": 0.02742895670235157,
+      "test_r2_score": 0.7500905394554138,
+      "test_the_metric": -0.02490409091114998,
+      "status": "stable_good",
+      "comment": "三次中最优，且仍保持稳定。"
+    },
+    {
+      "name": "stage2_no_chem_seed0",
+      "group": "no_chem",
+      "seed": 0,
+      "pretrain": "stage2_no_chem",
+      "test_loss_epoch": 0.0018963469192385674,
+      "test_mae_epoch": 0.02920696884393692,
+      "val_loss": 0.0022805684711784124,
+      "val_mae": 0.032105959951877594,
+      "test_r2_score": 0.6225123405456543,
+      "test_the_metric": -0.02920696884393692,
+      "status": "worse_than_light_chem",
+      "comment": "完全去掉 chem 后性能下降。"
+    },
+    {
+      "name": "stage2_light_chem_zeopp090_seed0",
+      "group": "zeopp090",
+      "seed": 0,
+      "pretrain": "stage2_light_chem_zeopp090",
+      "test_loss_epoch": 0.002208708319813013,
+      "test_mae_epoch": 0.030353762209415436,
+      "val_loss": 0.002675524912774563,
+      "val_mae": 0.03320534899830818,
+      "test_r2_score": 0.5603336095809937,
+      "test_the_metric": -0.030353762209415436,
+      "status": "failed_variant",
+      "comment": "zeopp 从 0.80 提到 0.90 后明显变差。"
+    },
+    {
+      "name": "light_chem_uncert_seed0",
+      "group": "uncertainty_weighting",
+      "seed": 0,
+      "pretrain": "stage2_light_chem_uncert",
+      "test_loss_epoch": 0.0022112468723207712,
+      "test_mae_epoch": 0.02974678948521614,
+      "val_loss": 0.0027439480181783438,
+      "val_mae": 0.033192429691553116,
+      "test_r2_score": 0.5598282217979431,
+      "test_the_metric": -0.02974678948521614,
+      "status": "failed_variant",
+      "comment": "不确定性自适应权重没有带来提升。"
+    },
+    {
+      "name": "swa_finetune_seed0",
+      "group": "swa_finetune",
+      "seed": 0,
+      "pretrain": "stage2_light_chem",
+      "test_loss_epoch": 0.00394401466473937,
+      "test_mae_epoch": 0.042169760912656784,
+      "val_loss": 0.005119043868035078,
+      "val_mae": 0.0466141439974308,
+      "test_r2_score": 0.21490268409252167,
+      "test_the_metric": -0.042169760912656784,
+      "status": "failed_variant",
+      "comment": "SWA 微调导致严重退化。"
+    }
+  ],
+  "pretrain_results": [
+    {
+      "name": "aggressive_v2",
+      "group": "historical_strong_pretrain",
+      "chem_mae_epoch": 0.27790066599845886,
+      "mpp_accuracy_epoch": 0.17224374413490295,
+      "zeopp_mae_epoch": 0.17958813905715942,
+      "test_the_metric": 0.7147548794746399,
+      "status": "historical_reference"
+    },
+    {
+      "name": "stage2_n2_boost_old_best",
+      "group": "historical_strong_pretrain",
+      "chem_mae_epoch": 0.25779545307159424,
+      "mpp_accuracy_epoch": 0.20074211061000824,
+      "zeopp_mae_epoch": 0.1761869192123413,
+      "test_the_metric": 0.7667597532272339,
+      "status": "historical_pretrain_best"
+    },
+    {
+      "name": "stage2_no_chem",
+      "group": "current_search",
+      "chem_mae_epoch": null,
+      "mpp_accuracy_epoch": 0.17070484161376953,
+      "zeopp_mae_epoch": 0.17540104687213898,
+      "test_the_metric": 0.9953038096427917,
+      "status": "reasonable_but_not_best_downstream",
+      "comment": "预训练看起来正常，但下游不如 light_chem。"
+    },
+    {
+      "name": "stage2_light_chem",
+      "group": "current_search",
+      "chem_mae_epoch": 0.26219692826271057,
+      "mpp_accuracy_epoch": 0.18404452502727509,
+      "zeopp_mae_epoch": 0.17676694691181183,
+      "test_the_metric": 0.7450806498527527,
+      "status": "best_current_pretrain_mainline",
+      "comment": "对应当前最稳定下游方案。"
+    },
+    {
+      "name": "stage2_chem010",
+      "group": "current_search",
+      "chem_mae_epoch": 0.26461517810821533,
+      "mpp_accuracy_epoch": 0.18404452502727509,
+      "zeopp_mae_epoch": 0.17652805149555206,
+      "test_the_metric": 0.7429012656211853,
+      "status": "similar_to_light_chem",
+      "comment": "与 chem=0.20 基本打平。"
+    },
+    {
+      "name": "stage2_curriculum_cz",
+      "group": "current_search",
+      "chem_mae_epoch": 0.26436540484428406,
+      "mpp_accuracy_epoch": 0.1963890939950943,
+      "zeopp_mae_epoch": 0.17657403647899628,
+      "test_the_metric": 0.7554495930671692,
+      "status": "good_pretrain_but_no_downstream_gain",
+      "comment": "课程式升权让 mpp 更好，但下游未超过 light_chem。"
+    },
+    {
+      "name": "stage2_light_chem_uncert",
+      "group": "current_search",
+      "chem_mae_epoch": 0.26353195309638977,
+      "mpp_accuracy_epoch": 0.19602063298225403,
+      "zeopp_mae_epoch": 0.176735058426857,
+      "test_the_metric": 0.7557536363601685,
+      "status": "good_pretrain_but_failed_downstream",
+      "comment": "自适应权重预训练指标不错，但下游明显变差。"
+    },
+    {
+      "name": "stage2_light_chem_zeopp090",
+      "group": "current_search",
+      "chem_mae_epoch": 0.2638789117336273,
+      "mpp_accuracy_epoch": 0.19675755500793457,
+      "zeopp_mae_epoch": 0.17655698955059052,
+      "test_the_metric": 0.7563216090202332,
+      "status": "good_pretrain_but_failed_downstream",
+      "comment": "zeopp=0.90 预训练看似稳定，但下游退化。"
+    },
+    {
+      "name": "stage2_modal_curriculum",
+      "group": "failed_search",
+      "chem_mae_epoch": 0.35253795981407166,
+      "mpp_accuracy_epoch": 0.17560800909996033,
+      "zeopp_mae_epoch": 0.19223275780677795,
+      "test_the_metric": 0.6308373212814331,
+      "status": "failed_variant",
+      "comment": "任务专属模态读出在当前设置下失败。"
+    }
+  ],
+  "final_conclusion": {
+    "best_single_point": "best1_seed0",
+    "most_reliable_configuration": "light_chem",
+    "recommended_pretrain_weights": {
+      "ggm": 0.05,
+      "mpp": 0.9,
+      "chem": 0.2,
+      "zeopp": 0.8
+    },
+    "recommended_statement": "best1 是当前最佳单次结果，但复现性不足；light_chem 是当前最稳定、最可信的 CMT/ALIGNN 预训练配置。",
+    "suggested_use": "毕业设计正文中建议同时报告 best1 作为单次上限，以及 light_chem(seed0/1/2) 作为稳定主结果。"
+  }
+}

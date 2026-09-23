@@ -1,0 +1,36 @@
+{
+  "mse": 0.0014023880939930677,
+  "mae": 0.024811018258333206,
+  "r2_score": 0.7208399772644043,
+  "val_metrics_per_model": [
+    {
+      "mse": 0.0033261054195463657,
+      "mae": 0.03718873858451843,
+      "r2_score": 0.5362514853477478
+    },
+    {
+      "mse": 0.0015255063772201538,
+      "mae": 0.026693245396018028,
+      "r2_score": 0.7873033881187439
+    },
+    {
+      "mse": 0.002776056295260787,
+      "mae": 0.038564711809158325,
+      "r2_score": 0.612943172454834
+    }
+  ],
+  "weights": [
+    0.29783979058265686,
+    0.41494718194007874,
+    0.287212997674942
+  ],
+  "split": "test",
+  "num_models": 3,
+  "weighted": true,
+  "ckpt_paths": [
+    "/home/yihaoyu/docker/bag/MOFTransformer_CMT/outputs/all_N2/logs_try_best_n2_seed/pretrained_mof_seed0_from_best/version_6/checkpoints/best.ckpt",
+    "/home/yihaoyu/docker/bag/MOFTransformer_CMT/outputs/all_N2/logs_try_best_n2_seed/pretrained_mof_seed1_from_best/version_6/checkpoints/best.ckpt",
+    "/home/yihaoyu/docker/bag/MOFTransformer_CMT/outputs/all_N2/logs_try_best_n2_seed/pretrained_mof_seed2_from_best/version_1/checkpoints/best.ckpt"
+  ],
+  "prediction_csv": "/home/yihaoyu/docker/bag/MOFTransformer_CMT/outputs/all_N2/ensemble_light_chem/test_ensemble_prediction.csv"
+}
